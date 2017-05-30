@@ -53,6 +53,7 @@ class RelayServer(threading.Thread):
         lock.acquire()
         clients.remove(self)
         lock.release()
+        logger.info('logged out', extra=self.loginfo)
         try:
             self.socket.shutdown(socket.SHUT_RDWR)
             self.socket.close()
