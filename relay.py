@@ -88,7 +88,7 @@ class RelayClient(threading.Thread):
                 if spot == b'':
                     continue
                 loginfo['clientip'] = len(clients)
-                logger.info(spot.decode('utf-8'), extra=loginfo)
+                logger.debug(spot.decode('utf-8'), extra=loginfo)
                 lock.acquire()
                 for client in clients:
                     client.sendSpot(spot)
